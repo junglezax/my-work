@@ -1,0 +1,36 @@
+# 180505.txt
+@cluster
+cd ~/images
+mkdir ../container_180505
+find . -iname A*.jpg | xargs -I{} ln {} ../container_180505/
+    4359    A-D
+    
+@bee0
+cd ~/images
+mkdir ../container_180505_1
+find . -iname E*.jpg | xargs -I{} ln {} ../container_180505_1/
+    9827
+    
+合并 container_180505 container_180505_1 后，还是 9827
+说明后者包含前者
+
+但一个 13G
+一个 18G
+ll | awk '{print $5, $9}' > 1.txt
+diff 1.txt ../container_180505_1/1.txt
+很多图片，在 container_180505 中的小的多
+
+find . -name linesr > linesrs.txt
+cat linesrs.txt | awk -F/ '{print $3}' | sort -u    
+cat linesrs.txt | awk -F/ '{print $NF}' | sort -u
+
+train datasets:
+cntr170322
+cntr170408
+cntr170415
+cntr170601
+container-20160710
+
+extract_char_bmps.py
+running
+提取 images@bee0 下面所有 bmps 到 ~/images/cntr180505

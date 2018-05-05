@@ -1,0 +1,12 @@
+--------------- 2018-5-5
+mac osx 下，python3 import cv2 时出错
+g python3 opencv Symbol not found: _clock_gettime
+https://github.com/skvark/opencv-python/issues/67
+不知怎么操作
+
+https://stackoverflow.com/questions/48302857/installing-opencv-for-python-2-7-on-a-mac?rq=1
+sudo -H pip3 uninstall opencv_python
+sudo -H pip3 install opencv-python==
+sudo -H pip3 install opencv-python==3.3.0.10
+好了
+-----------------

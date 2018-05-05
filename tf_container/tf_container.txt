@@ -1,0 +1,20 @@
+# tf_container.txt
+2018-4-29
+
+Tasks:
+1 跑通 tf mnist
+    done
+2 找出 container train dataset
+    cntr170322
+    cntr170408
+    cntr170415
+    cntr170601
+    container-20160710
+3 用 tf 跑起来
+4 评估 inference 时间
+5 剥离 caffe 代码，用 tf 取而代之
+6 自动画矩形框
+7 人工画矩形框
+8 构造新网络
+9 训练
+10 新的推理框架

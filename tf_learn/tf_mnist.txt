@@ -1,0 +1,28 @@
+# tf_mnist.txt
+ref https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/mnist/
+
+python3 fully_connected_feed.py
+Step 1900: loss = 0.41 (0.002 sec)
+Training Data Eval:
+Num examples: 55000  Num correct: 49168  Precision @ 1: 0.8940
+Validation Data Eval:
+Num examples: 5000  Num correct: 4512  Precision @ 1: 0.9024
+Test Data Eval:
+Num examples: 10000  Num correct: 9013  Precision @ 1: 0.9013
+
+change
+--input_data_dir to ./tmp
+--log_dir to ./tmp
+
+python3 mnist_deep.py
+step 19900, training accuracy 1
+test accuracy 0.9913
+
+python3 mnist_softmax.py
+0.92
+
+python3 mnist_softmax_xla.py
+0.9178
+
+python3 mnist_with_summaries.py
+Accuracy at step 990: 0.9701

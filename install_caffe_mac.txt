@@ -1,0 +1,11 @@
+# install_caffe_mac.txt
+# 2018-4-29
+ref http://caffe.berkeleyvision.org/install_osx.html
+brew install -vd snappy leveldb gflags glog szip lmdb
+/usr/local/Homebrew/Library/Homebrew/brew.rb:12:in `<main>': Homebrew must be run under Ruby 2.3! You're running 2.0.0. (RuntimeError)
+------------------------------
+trying resolve Homebrew must be run under Ruby 2.3 problem.
+
+ref https://github.com/Homebrew/brew/issues/3404
+
+brew update-reset

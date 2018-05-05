@@ -1,0 +1,84 @@
+# my_reading_dl.txt
+# 2018-4-29
+
+《深度学习(Deep Learning)》
+Goodfellow, Bengio
+第 4 章 P53
+log softmax(x) 的稳定性：
+可以计算 log softmax(x - m)，
+其中 m=max(x)。
+因为
+log softmax(x)
+= log (exp(x)/sum(exp(x_j, j=1..n)))
+= x - log sum(...)
+
+所以
+log softmax(x - m)
+= x - m - log(sum(z_j, j=1..n))
+
+代码：
+https://blog.csdn.net/lanchunhui/article/details/51248184
+# 假设 x 是一个向量
+def logsoftmax(x):
+    m = T.max(x)
+    exp_x = T.exp(x-m)
+    Z = T.sum(exp_x)
+    return x-m-T.log(Z)
+------------------------------
+P53 条件数的另一个定义
+https://baike.baidu.com/item/条件数/5293168?fr=aladdin#2
+C(A)=||A|| ||A^{-1}||
+------------------------------
+P54 翻译有问题
+是局部极小点，不是 全局极小点。
+原句：
+A point that obtains the absolute lowest value of f (x) is a global minimum.
+It is possible for there to be only one global minimum or multiple global minima of
+the function. It is also possible for there to be local minima that are not globally
+optimal.
+
+受翻译误导，开始不理解第 2 句：多个全局极小点？
+
+这里 minimum 是最小值， minima 是极小值。
+最小值当然只有一个；极小值可能有多个（有必要在 minia 前加个 global 么？）。
+查下字典，也许我的理解有误：minima 是 minimum 的复数。
+
+按这个帖子
+https://www.zhihu.com/question/22319675?sort=created
+极小值是 minimal (偏序集的例子)。
+
+https://en.wikipedia.org/wiki/Maximal_and_minimal_elements
+好像 minimal 没有复数（只作形容词用），只说 minimal elements。
+
+最值 extrema (the plural of extremum)
+https://en.wikipedia.org/wiki/Maxima_and_minima
+
+按此文，minimal 似乎与最/极值无关。
+
+中文最值/极值术语就容易让人搞混。
+英文应该都是 extremum, global 的叫最值，local 的叫极值。
+
+那么原文 global minima 就不太严谨了，是多余的。
+
+------------------------------
+P55 梯度，就是（偏）导数组成的向量。
+
+方向导数，我的理解就是在任意方向上的偏导，
+一般的偏导是在沿坐标轴上的偏导，
+沿任意方向 u 的梯度与一般梯度有个夹角，用于 cos(theta) 度量。
+
+公式 4.3, 4.4 没看太懂，
+上面一段关于 alpha 的式也没看太懂。
+
+P56 Jacobian 矩阵：
+函数 f 具有多维输入，多维输出时：R^m->R^n
+对各分量的偏导的各个分量组成的矩阵
+即 J(i, j) = f 对 x(j) 偏导的 第 i 分量。
+
+P57 Hessian 矩阵等价于梯度的 Jacobian 矩阵：
+f(x) 是多维输入的一维函数：R^m->R，
+x 是 m 维向量，
+梯度 D(f(x)) 是 m 维向量：R^m->R^m，
+而 Hessian(f(x)) 是这个 m 维输入 m 维输出的函数的 Jacobian 矩阵，
+是 m*m 的矩阵，
+H(i, j) = f(x) 对 x(i) 和 x(j) 的二阶偏导；
