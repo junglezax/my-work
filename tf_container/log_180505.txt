@@ -34,3 +34,11 @@ container-20160710
 extract_char_bmps.py
 running
 提取 images@bee0 下面所有 bmps 到 ~/images/cntr180505
+-----------------
+python3 train_softmax.py
+    work
+    0.958001
+    
+python3 train_deep.py
+step 19900, training accuracy 1
+test accuracy 0.98278

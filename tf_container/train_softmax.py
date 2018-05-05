@@ -60,8 +60,8 @@ def main(_):
     # Train
     for _ in range(1000):
         batch_xs, batch_ys = data.train.next_batch(100)
-        print('batch_xs.shape', batch_xs.shape)
-        print('batch_ys.shape', batch_ys.shape)
+        # print('batch_xs.shape', batch_xs.shape)
+        # print('batch_ys.shape', batch_ys.shape)
         sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
     # Test trained model
