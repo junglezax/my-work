@@ -7,6 +7,7 @@ import numpy
 from tensorflow.python.framework import dtypes
 from tensorflow.contrib.learn.python.learn.datasets import base
 
+from label_util import ch2num
 
 def read_images(img_dir):
     lst = []
@@ -29,7 +30,7 @@ def read_images(img_dir):
     return numpy.array(images), numpy.array(labels)
 
 
-def map_labels(labels):
+def map_labels0(labels):
     uniq_labels = sorted(list(set(labels)))
     print('uniq_labels', uniq_labels)
     d = {}
@@ -37,6 +38,10 @@ def map_labels(labels):
         d[ch] = idx
     print('d', d)
     return [d[ch] for ch in labels]
+
+
+def map_labels(labels):
+    return [ch2num[ch] for ch in labels]
 
 
 class DataSet(object):

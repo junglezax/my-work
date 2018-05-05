@@ -42,3 +42,7 @@ python3 train_softmax.py
 python3 train_deep.py
 step 19900, training accuracy 1
 test accuracy 0.98278
+-----------------
+plain_to_sub_dir.py
+    194740
+    正确
