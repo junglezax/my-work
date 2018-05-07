@@ -44,5 +44,10 @@ step 19900, training accuracy 1
 test accuracy 0.98278
 -----------------
 plain_to_sub_dir.py
+    container-20160710_sub
     194740
     正确
+--------------
+python3 train_deep.py container-20160710_sub
+killed, on mac
+
